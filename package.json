@@ -1,0 +1,28 @@
+{
+  "name": "trips",
+  "version": "1.0.0",
+  "description": "trips server ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KienTran17/TripsServer.git"
+  },
+  "keywords": [
+    "trips",
+    "phuot"
+  ],
+  "author": "Kien Tran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KienTran17/TripsServer/issues"
+  },
+  "homepage": "https://github.com/KienTran17/TripsServer#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6"
+  }
+}

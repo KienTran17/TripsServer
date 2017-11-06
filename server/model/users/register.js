@@ -7,10 +7,7 @@ module.exports = (username, twitter_link, phone, password, nickname, last_name,
             "username", twitter_link, phone, password, nickname, last_name, 
             instagram_link, google_link, flick_link, first_name, facebook_link, 
             email, date_create, cover_link, birthday, avatar_link, address)
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)
-            RETURNING "username", twitter_link, phone, password, nickname, last_name, 
-            instagram_link, google_link, flick_link, first_name, facebook_link, 
-            email, date_create, cover_link, birthday, avatar_link, address;`,
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17);`,
             [username, twitter_link, phone, password, nickname, last_name,
                 instagram_link, google_link, flick_link, first_name, facebook_link, 
                 email, cover_link, birthday, avatar_link, address])

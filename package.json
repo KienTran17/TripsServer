@@ -4,7 +4,7 @@
   "description": "trips server ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -21,8 +21,16 @@
   },
   "homepage": "https://github.com/KienTran17/TripsServer#readme",
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "express-session": "^1.15.6"
+    "express-graphql": "^0.6.11",
+    "express-session": "^1.15.6",
+    "graphql": "^0.11.7",
+    "graphql-server-express": "^1.2.0",
+    "graphql-tools": "^2.7.0",
+    "jsonwebtoken": "^8.1.0",
+    "pg": "^7.4.0",
+    "router": "^1.3.2"
   }
 }

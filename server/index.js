@@ -2,6 +2,7 @@ const express = require('express');
 const session = require('express-session');
 const parser = require('body-parser').urlencoded({ extended: false });
 
+
 const app = express();
 app.use(session({ 
     secret: 'key', 
@@ -11,3 +12,13 @@ app.use(session({
 }));
 app.listen(3002, () => console.log('Server started'));
 
+//route user
+app.use('/users', parser, require('./router/users/index'));
+
+//route trip
+app.use('/trips', parser, require('./router/trips/index'));
+
+//route place
+app.use('/places', parser, require('./router/places/index'));
+
+app.use('/', parser, require('./router/index'));

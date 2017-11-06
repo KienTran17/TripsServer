@@ -1,5 +1,5 @@
-let express = require('express');
-let router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 //uers
 router.get('/profile', require('../../api/users/getProfile'));

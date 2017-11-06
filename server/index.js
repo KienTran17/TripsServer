@@ -10,7 +10,7 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
-app.listen(3002, () => console.log('Server started'));
+app.listen(process.env.PORT, () => console.log('Server started'));
 
 //route user
 app.use('/users', parser, require('./router/users/index'));

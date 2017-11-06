@@ -7,9 +7,9 @@ module.exports = (req, res, next) => {
         .then(loged => {
             if (loged === true)
                 sign({ username })
-                    .then(async token => {
-                        await changeToken(username, token).then(isOk=>{
-                            if(isOk){
+                    .then(token => {
+                        changeToken(username, token).then(isOk => {
+                            if (isOk) {
                                 req.session.token = token;
                                 res.send(token)
                             }

@@ -1,13 +1,14 @@
 const { checkLogin } = require('../../../config/query');
 const changeToken = require('./changeToken')
+const bcrypt = require('bcrypt');
 module.exports = (username, password) =>
     new Promise((resolve, reject) => {
-        checkLogin([username, password])
+        checkLogin([username],password)
             .then(res => {
-                if (res.length === 1) {
+                if (res) {
                     resolve(true)
-                }
+                }                    
                 else
-                    reject('Invalid username or password!')
+                reject('Invalid username or password!')
             })
     });

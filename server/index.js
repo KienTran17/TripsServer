@@ -3,7 +3,6 @@ const session = require('express-session');
 var cookieParser = require('cookie-parser');
 const parser = require('body-parser').json();
 
-
 const app = express();
 app.use(cookieParser());
 app.use(session({ 
@@ -14,7 +13,8 @@ app.use(session({
 }));
 
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "");
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
 

@@ -24,6 +24,7 @@ const checkLogin = (arrayData, password) => (
         const sql = `select username, twitter_link, phone, password, nickname, last_name, instagram_link, id, google_link, flick_link, first_name, facebook_link, email, date_create, cover_link, birthday, avatar_link, address, token from "users" where username=$1`;
         queryDB(sql, arrayData)
             .then(res => {
+                if(!res.rows.length) resolve(undefined)
                 bcrypt.compare(password, res.rows[0].password, (err, isTrue) => {
                     delete res.rows[0].password;
                     delete res.rows[0].token;

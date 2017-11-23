@@ -4,14 +4,14 @@ const changeToken = require('../../model/users/changeToken')
 module.exports = (req, res, next) => {
     const { username, password } = req.body;
     checkLogin(username, password)
-        .then(loged => {
-            if (loged === true)
+        .then(userInfo => {
+            if (userInfo)
                 sign({ username })
                     .then(token => {
                         changeToken(username, token).then(isOk => {
                             if (isOk) {
                                 req.session.token = token;
-                                res.send(token)
+                                res.cookie('userInfo', {token, userInfo}, { expires: new Date(Date.now() + 2592000)}).send({token, userInfo});
                             }
                         })
                     })

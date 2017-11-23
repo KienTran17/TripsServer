@@ -21,11 +21,13 @@ const selectAObject = (table, arrayData) => (
 
 const checkLogin = (arrayData, password) => (
     new Promise((resolve, reject) => {
-        const sql = `select * from "users" where username=$1`;
+        const sql = `select username, twitter_link, phone, password, nickname, last_name, instagram_link, id, google_link, flick_link, first_name, facebook_link, email, date_create, cover_link, birthday, avatar_link, address, token from "users" where username=$1`;
         queryDB(sql, arrayData)
             .then(res => {
                 bcrypt.compare(password, res.rows[0].password, (err, isTrue) => {
-                    if (isTrue) resolve(isTrue)
+                    delete res.rows[0].password;
+                    delete res.rows[0].token;
+                    if (isTrue) resolve(res.rows[0])
                     else resolve(undefined)
                 })
             })

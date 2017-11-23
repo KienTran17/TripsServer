@@ -6,7 +6,7 @@ module.exports = (username, password) =>
         checkLogin([username],password)
             .then(res => {
                 if (res) {
-                    resolve(true)
+                    resolve(res)
                 }                    
                 else
                 reject('Invalid username or password!')
